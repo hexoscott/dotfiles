@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -103,6 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # load in the aliases from the .zsh folder
 source ~/.zsh/aliases
 
+# Have .net tools available from PATH
+export PATH="$PATH:/Users/scott/.dotnet/tools"
+
 # nvm stuff
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
@@ -110,3 +118,8 @@ source $(brew --prefix nvm)/nvm.sh
 alias vi=nvim
 alias vim=nvim
 
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
