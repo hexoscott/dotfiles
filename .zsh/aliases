@@ -1,1 +1,11 @@
 alias config='/usr/bin/git --git-dir=/Users/scott/.cfg/ --work-tree=/Users/scott'
+
+# docker stuff
+alias d-c=docker-compose
+
+# rancher desktop / nerdctl
+alias nctl=nerdctl
+alias docker=nerdctl
+
+# kubectl
+alias k=kubectl
