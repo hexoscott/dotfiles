@@ -1,5 +1,14 @@
 
-macos:
-fig
-alfred
-neovim
+## macos
+- fig
+- alfred
+- neovim
+- dnsmasq - via homebrew, setup to receive on .internal and .local
+
+## things to do:
+### dnsmasq on mac
+- sudo mkdir -p /etc/resolver
+- create two files with the contents 'nameserver 127.0.0.1' at /etc/resolver/internal and /etc/resolver/local
+- the above will point .internal and .local through the local dnsmasq DNS server
+- edit /opt/homebrew/etc/dnsmasq.conf and add address=/internal/127.0.0.1 and address=/local/127.0.0.1
+- dnsmasq will now send all .local and .internal addresses to your machine
