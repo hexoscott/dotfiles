@@ -1,8 +1,7 @@
+# Fig pre block. Keep at the top of this file.
+export PATH="${PATH}:${HOME}/.local/bin"
+eval "$(fig init zsh pre)"
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -111,6 +110,12 @@ source ~/.zsh/aliases
 # Have .net tools available from PATH
 export PATH="$PATH:/Users/scott/.dotnet/tools"
 
+# Local go tools on path (ensure go is installed as well)
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# gopath
+export GOPATH=$HOME/go
+
 # nvm stuff
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
@@ -119,9 +124,10 @@ alias vi=nvim
 alias vim=nvim
 
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Fig post block. Keep at the bottom of this file.
+eval "$(fig init zsh post)"
+
