@@ -7,7 +7,6 @@ alias d-c=docker-compose
 alias nctl=nerdctl
 alias n=nerdctl
 alias nerd=nerdctl
-alias docker=nerdctl
 
 # kubectl
 alias k=kubectl
