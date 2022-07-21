@@ -6,6 +6,7 @@ alias d-c=docker-compose
 # rancher desktop / nerdctl
 alias nctl=nerdctl
 alias n=nerdctl
+alias nk="nerdctl --namespace=k8s.io $1"
 alias nerd=nerdctl
 
 # kubectl
