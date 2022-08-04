@@ -5,6 +5,7 @@
 - neovim
 - dnsmasq - via homebrew, setup to receive on .internal and .local
 - alt-tab https://alt-tab-macos.netlify.app
+- emetttap - from their site https://emmetapp.com/
 
 ## things to do:
 ### dnsmasq on mac
