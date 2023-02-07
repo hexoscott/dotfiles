@@ -4,6 +4,7 @@
 :set smartcase
 set incsearch
 :set cursorline
+:set mouse=a
 
 " tab sizes and such
 :set tabstop=2
@@ -12,17 +13,14 @@ set incsearch
 
 syntax on
 set number relativenumber
-colorscheme delek
+colorscheme default
 
 let mapleader="\<Space>"
 
 " general convenience mappings tailored to me
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
-nnoremap <leader>nn :NnnExplorer<CR>
-nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>fd :filetype detect<CR>
 
-"
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
@@ -33,6 +31,7 @@ nmap <silent> <c-l> :wincmd l<CR>
 map <silent> <F2> :Files<CR>
 map <silent> <F3> :Buffers<CR>
 map <silent> <F4> :Marks<CR>
+map <silent> <F5> :Rg<CR>
 
 " coc stuff
 :nmap <space>e <Cmd>CocCommand explorer<CR>
@@ -130,6 +129,7 @@ map <leader>gr <Esc>:GoRename<CR>
 map <leader>gd <Esc>:GoDef<CR>
 map <leader>gb <Esc>:GoBuild<CR>
 map <leader>gt <Esc>:GoTest<CR>
+map <leader>doc <Esc>:GoDoc<CR>
 
 " Go syntax highlighting
 let g:go_highlight_fields = 1

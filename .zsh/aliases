@@ -1,4 +1,6 @@
+# keep dot files in git
 alias config='/usr/bin/git --git-dir=/Users/scott/.cfg/ --work-tree=/Users/scott'
+
 alias cls=clear
 
 # docker stuff
