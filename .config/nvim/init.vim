@@ -1,3 +1,4 @@
+:filetype on
 
 :set ignorecase
 :set smartcase
@@ -5,24 +6,43 @@ set incsearch
 :set cursorline
 
 " tab sizes and such
-:set tabstop=4
-:set shiftwidth=4
+:set tabstop=2
+:set shiftwidth=2
 :set expandtab
 
 syntax on
-set relativenumber
-colorscheme desert
+set number relativenumber
+colorscheme delek
 
 let mapleader="\<Space>"
+
+" general convenience mappings tailored to me
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
-nnoremap <leader>ev :e ~/.config/nvim/init.vim<CR>
 nnoremap <leader>nn :NnnExplorer<CR>
 nnoremap <leader>rg :Rg<CR>
+nnoremap <leader>fd :filetype detect<CR>
+
+"
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 " for managing opening of files (fzf)
 map <silent> <F2> :Files<CR>
 map <silent> <F3> :Buffers<CR>
 map <silent> <F4> :Marks<CR>
+
+" coc stuff
+:nmap <space>e <Cmd>CocCommand explorer<CR>
+
+" visual cue for seeing which split you're in
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
 
 call plug#begin()
 
@@ -50,7 +70,7 @@ Plug 'mattn/emmet-vim'
 " js / ts stuff
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'leafOfTree/vim-vue-plugin'
+Plug 'posva/vim-vue'
 
 " code completion and language servers
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -58,7 +78,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " code completion extensions
-let g:coc_global_extensions = ['coc-tsserver']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-vetur', 'coc-explorer']
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
@@ -122,14 +142,13 @@ let g:go_highlight_operators = 1
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 
-" config for plugins
 " prettier:
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#autoformat_config_present = 1
-let g:prettier#exec_cmd_async = 1
-let g:prettier#quickfix_enabled = 0
-autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
+" autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
+
+" vim-vue
+" hard coded list of pre-processors to help speed up vim-vue rather than it
+" self detecting
+let g:vue_pre_processors = ['typescript', 'stylus']
 
 " nnn config
 " Floating window. This is the default
