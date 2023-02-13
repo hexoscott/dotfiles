@@ -5,7 +5,6 @@ set ignorecase
 set smartcase
 set incsearch
 set cursorline
-hi CursorLine cterm=NONE ctermbg=240
 set mouse=a
 
 " tab sizes and such
@@ -15,6 +14,10 @@ set mouse=a
 
 syntax on
 set number relativenumber
+
+" colours
+hi CursorLine cterm=NONE ctermbg=240
+hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 let mapleader="\<Space>"
 
