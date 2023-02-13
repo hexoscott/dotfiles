@@ -1,10 +1,12 @@
-:filetype on
+filetype on
+colorscheme default
 
-:set ignorecase
-:set smartcase
+set ignorecase
+set smartcase
 set incsearch
-:set cursorline
-:set mouse=a
+set cursorline
+hi CursorLine cterm=NONE ctermbg=240
+set mouse=a
 
 " tab sizes and such
 :set tabstop=2
@@ -13,7 +15,6 @@ set incsearch
 
 syntax on
 set number relativenumber
-colorscheme default
 
 let mapleader="\<Space>"
 
@@ -32,6 +33,9 @@ map <silent> <F2> :Files<CR>
 map <silent> <F3> :Buffers<CR>
 map <silent> <F4> :Marks<CR>
 map <silent> <F5> :Rg<CR>
+" ripgrep command control
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
+let g:rg_derive_root='true'
 
 " coc stuff
 :nmap <space>e <Cmd>CocCommand explorer<CR>
@@ -69,7 +73,6 @@ Plug 'mattn/emmet-vim'
 " js / ts stuff
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'posva/vim-vue'
 
 " code completion and language servers
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -77,7 +80,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " code completion extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-vetur', 'coc-explorer']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-vetur', 'coc-explorer', '@yaegassy/coc-volar']
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
@@ -153,3 +156,4 @@ let g:vue_pre_processors = ['typescript', 'stylus']
 " nnn config
 " Floating window. This is the default
 let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Comment' } }
+

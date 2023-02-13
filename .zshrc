@@ -166,3 +166,7 @@ export PATH="/Users/scott/.rd/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# fzf to use ripgrep
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
