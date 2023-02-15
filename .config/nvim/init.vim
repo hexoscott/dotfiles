@@ -1,5 +1,5 @@
 filetype on
-colorscheme default
+colorscheme desert
 
 set ignorecase
 set smartcase
@@ -24,6 +24,9 @@ let mapleader="\<Space>"
 " general convenience mappings tailored to me
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>fd :filetype detect<CR>
+" only scroll 1/4 of the page instead of half
+nnoremap <expr> <C-d> (winheight(0) / 4) . '<C-d>'
+nnoremap <expr> <C-u> (winheight(0) / 4) . '<C-u>'
 
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
@@ -35,7 +38,7 @@ nmap <silent> <c-l> :wincmd l<CR>
 map <silent> <F2> :Files<CR>
 map <silent> <F3> :Buffers<CR>
 map <silent> <F4> :Marks<CR>
-map <silent> <F5> :Rg<CR>
+
 " ripgrep command control
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 let g:rg_derive_root='true'
@@ -105,12 +108,6 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
@@ -136,6 +133,17 @@ map <leader>gd <Esc>:GoDef<CR>
 map <leader>gb <Esc>:GoBuild<CR>
 map <leader>gt <Esc>:GoTest<CR>
 map <leader>doc <Esc>:GoDoc<CR>
+
+" go debugging stuff
+let g:go_debug_mappings = {
+      \ '(go-debug-continue)': {'key': 'c', 'arguments': '<nowait>'},
+      \ '(go-debug-next)': {'key': 'n', 'arguments': '<nowait>'},
+      \ '(go-debug-step)': {'key': 's'},
+      \ '(go-debug-print)': {'key': 'p'},
+  \}
+autocmd Filetype go map <leader>ds :GoDebugStart<cr>
+autocmd Filetype go map <leader>dt :GoDebugStop<cr>
+autocmd Filetype go map <leader>db :GoDebugBreakpoint<cr>
 
 " Go syntax highlighting
 let g:go_highlight_fields = 1
