@@ -1,4 +1,5 @@
 filetype on
+syntax on
 colorscheme desert
 
 set ignorecase
@@ -12,7 +13,6 @@ set mouse=a
 :set shiftwidth=2
 :set expandtab
 
-syntax on
 set number relativenumber
 
 " colours
@@ -68,6 +68,7 @@ Plug 'justinmk/vim-sneak'
 
 " language specific plugins
 Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'OmniSharp/omnisharp-vim'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
@@ -155,6 +156,9 @@ let g:go_highlight_operators = 1
 " Auto formatting and importing
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
+
+" C#
+let g:OmniSharp_selector_findusages = 'fzf'
 
 " prettier:
 " autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
