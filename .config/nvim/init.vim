@@ -74,10 +74,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'OmniSharp/omnisharp-vim'
 
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 
@@ -91,11 +87,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " code completion extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-vetur', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-vetur', 'coc-prettier', '@yaegassy/coc-volar']
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
+
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -163,9 +161,6 @@ let g:go_fmt_command = "goimports"
 
 " C#
 let g:OmniSharp_selector_findusages = 'fzf'
-
-" prettier:
-" autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 
 " vim-vue
 " hard coded list of pre-processors to help speed up vim-vue rather than it
@@ -242,6 +237,5 @@ require("telescope").setup {
   },
 }
 
--- load the file browser extension itself
 require("telescope").load_extension "file_browser"
 EOF
