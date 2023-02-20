@@ -1,5 +1,4 @@
-filetype on
-syntax on
+
 colorscheme desert
 
 set ignorecase
@@ -39,7 +38,8 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fb :Telescope file_browser<cr>
+nnoremap <leader>b :Telescope file_browser<cr>
+nnoremap <leader>B :Telescope file_browser path=%:p:h select_buffer=true<cr>
 
 " ripgrep command control
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
@@ -91,7 +91,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " code completion extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-vetur', 'coc-explorer', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-vetur', '@yaegassy/coc-volar']
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
