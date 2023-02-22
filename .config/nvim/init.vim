@@ -33,6 +33,13 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
+" splits
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
+" close buffers
+noremap <leader>c :bd<CR>
+
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -80,6 +87,7 @@ Plug 'mattn/emmet-vim'
 " js / ts stuff
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
+Plug 'leafOfTree/vim-vue-plugin'
 
 " code completion and language servers
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -135,7 +143,7 @@ map <leader>gr <Esc>:GoRename<CR>
 map <leader>gd <Esc>:GoDef<CR>
 map <leader>gb <Esc>:GoBuild<CR>
 map <leader>gt <Esc>:GoTest<CR>
-map <leader>doc <Esc>:GoDoc<CR>
+map <leader>go <Esc>:GoDoc<CR>
 
 " go debugging stuff
 let g:go_debug_mappings = {
