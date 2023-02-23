@@ -94,6 +94,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+let g:airline_theme='bubblegum'
+
 " code completion extensions
 let g:coc_global_extensions = ['coc-tsserver', 'coc-vetur', 'coc-prettier', '@yaegassy/coc-volar']
 " Remap keys for applying codeAction to the current line.
