@@ -12,6 +12,8 @@ set ignorecase
 set smartcase
 set cursorline
 set mouse=a
+set showmode
+set history=1000   " overrides the 200 in defaults.vim
 
 let mapleader="\<Space>"
 
@@ -37,10 +39,10 @@ set number relativenumber
 set sneak
 
 " easy movement between windows
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " splits
 noremap <leader>h :<C-u>split<CR>
@@ -48,3 +50,13 @@ noremap <leader>v :<C-u>vsplit<CR>
 
 " close buffer
 noremap <leader>c :bd<CR>
+
+map <leader>z <Action>(ToggleDistractionFreeMode)
+map <leader>s <Action>(SelectInProjectView)
+
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gL <Action>(QuickImplementations)
+nmap gi <Action>(GotoImplementation)
+
+" open terminal
+map <leader>t <Action>(ActivateTerminalToolWindow)
