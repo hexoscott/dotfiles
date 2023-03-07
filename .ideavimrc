@@ -4,7 +4,7 @@
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
-set scrolloff=3
+set scrolloff=1
 
 " Do incremental searching.
 set incsearch
@@ -31,6 +31,8 @@ map Q gq
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
 
+set NERDTree
+nnoremap <C-n> :NERDTree<CR>
 
 " Find more examples here: https://jb.gg/share-ideavimrc
 
@@ -64,3 +66,6 @@ nmap gi <Action>(GotoImplementation)
 
 " open terminal
 map <leader>t <Action>(ActivateTerminalToolWindow)
+
+" debugging stuff
+nnoremap <leader>bp :action ToggleLineBreakpoint<CR>

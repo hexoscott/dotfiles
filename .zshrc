@@ -170,3 +170,4 @@ export PATH="/Users/scott/.rd/bin:$PATH"
 # fzf to use ripgrep
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export PATH="/opt/homebrew/opt/go@1.19/bin:$PATH"
