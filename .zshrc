@@ -115,9 +115,6 @@ source ~/.zsh/aliases
 # Have .net tools available from PATH
 export PATH="$PATH:/Users/scott/.dotnet/tools"
 
-# Local go tools on path (ensure go is installed as well)
-export PATH="$PATH:$(go env GOPATH)/bin"
-
 # gopath
 export GOPATH=$HOME/go
 
