@@ -21,3 +21,34 @@ alias v=nvim
 alias vi=nvim
 alias vim=nvim
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
+
+alias zrc="source ~/.zshrc"
+
+# port checking
+checkPort() {
+  lsof -t -i:$argv[1]
+}
+
+alias cport=checkPort
+
+killPort() {
+  kill -9 (lsof -t -i:$argv[1])
+}
+
+alias kport=killPort
+
+# ssh useful commands and shortcuts
+sshAddKey() {
+  ssh-keygen -t rsa -C $argv
+}
+
+alias sshkey=sshAddKey
+
+sshStart() {
+  eval ssh-agent -s
+  ssh-add ~/.ssh/$argv[1]
+}
+
+alias sshuser=sshStart
+
+alias sshpingg="ssh -T git@github.com"

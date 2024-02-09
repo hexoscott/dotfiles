@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,8 +7,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -117,6 +117,7 @@ export PATH="$PATH:/Users/scott/.dotnet/tools"
 
 # gopath
 export GOPATH=$HOME/go
+export PATH="$PATH:/Users/scott/go/bin"
 
 # nvm stuff
 export NVM_DIR=~/.nvm
@@ -133,17 +134,17 @@ alias vim=nvim
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/Users/scott/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/Users/scott/miniforge3/etc/profile.d/conda.sh" ]; then
-#        . "/Users/scott/miniforge3/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/Users/scott/miniforge3/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
+__conda_setup="$('/Users/scott/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/scott/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/scott/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/scott/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 # <<< conda initialize <<<
 
 
@@ -158,9 +159,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/Users/scott/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -168,3 +166,12 @@ export PATH="/Users/scott/.rd/bin:$PATH"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export PATH="/opt/homebrew/opt/go@1.19/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+[[ -s "/Users/scott/.gvm/scripts/gvm" ]] && source "/Users/scott/.gvm/scripts/gvm"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
